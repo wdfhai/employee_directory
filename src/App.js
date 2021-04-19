@@ -4,10 +4,10 @@ import { Table } from "./components/table";
 
 function App() {
   return (
-    <section className="container-fluid">
-      < Nav />
-      < Table />
-    </section>
+      <section className="container-fluid">
+        < Nav />
+        < Table />
+      </section>
   );
 }
 

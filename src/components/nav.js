@@ -1,4 +1,6 @@
-export function Nav() {
+import { SearchForm } from "./searchForm"
+
+export const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <h1 className="navbar-brand" href="#">Your Company - Employee Directory</h1>
@@ -6,10 +8,7 @@ export function Nav() {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{float: "right"}}>
-        <form className="form-inline my-2 my-lg-0 ml-auto" >
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <SearchForm />
       </div>
   </nav>
   )
