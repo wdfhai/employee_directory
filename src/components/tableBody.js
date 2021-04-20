@@ -9,9 +9,9 @@ const TableRows = () => {
     fetch("https://randomuser.me/api/?nat=us&results=100")
     .then(res => res.json())
     .then((result) => {
-      console.log(result);
+      console.log(result.results);
       setIsLoaded(true);
-      setEmployeesData(result);
+      setEmployeesData(result.results);
     },
     (error) => {
       setIsLoaded(true);
@@ -26,18 +26,19 @@ const TableRows = () => {
   } else if (!isLoaded) {
     return <tr><td style={{color: "blue"}}>Loading...</td></tr>;
   } else {
+    console.log(employeesData);
     return (
       <>
-        {employeesData.length > 0 && employeesData.map((e, i) => {
-        <tr>
-          <th scope="row" key={i+1}>{i+1}</th>
+        {employeesData.length > 0 && employeesData.map((e, i) => (
+        <tr key={i+1}>
+          <th scope="row">{i+1}</th>
           <td><img className="img-fluid img-thumbnail rounded" alt="employee" src={e.picture.thumbnail} style={{height: "75px", width: "75px"}}/></td>
           <td>{e.name.first}</td>
           <td>{e.name.last}</td>
           <td>{e.email}</td>
           <td>{e.phone}</td>
         </tr>
-        })}
+        ))}
       </>
     )
   }

@@ -3,7 +3,7 @@ import { TableBody } from "./tableBody"
 
 export function Table () {
   return (
-    <div className="table-responsive">
+    <div className="table-responsive sortable">
       <table className="table table-striped">
         <thead className="thead-dark">
           <TableHeader/>
