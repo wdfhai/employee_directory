@@ -1,5 +1,5 @@
 import { TableHeader } from "./tableHeader";
-import { TableRows } from "./tableRows"
+import { TableBody } from "./tableBody"
 
 export function Table () {
   return (
@@ -8,9 +8,7 @@ export function Table () {
         <thead className="thead-dark">
           <TableHeader/>
         </thead>
-        <tbody>
-          <TableRows/>
-        </tbody>
+        <TableBody/>
       </table>
     </div>
   )
