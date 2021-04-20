@@ -28,7 +28,7 @@ const TableRows = () => {
   } else {
     return (
       <>
-        {employeesData.length && employeesData.map((e, i) => {
+        {employeesData.length > 0 && employeesData.map((e, i) => {
         <tr>
           <th scope="row" key={i+1}>{i+1}</th>
           <td><img className="img-fluid img-thumbnail rounded" alt="employee" src={e.picture.thumbnail} style={{height: "75px", width: "75px"}}/></td>
