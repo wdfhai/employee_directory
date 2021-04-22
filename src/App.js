@@ -1,14 +1,12 @@
 import "./App.css";
 import { PageHeader } from "./components/pageHeader";
-import { SearchNav } from "./components/SearchNav";
-import { TableContainer } from "./components/tableContainer";
+import { Table } from "./components/table";
 
 function App() {
   return (
       <section className="container-fluid">
         <PageHeader/>
-        <SearchNav/>
-        <TableContainer/>
+        <Table/>
       </section>
   );
 }
