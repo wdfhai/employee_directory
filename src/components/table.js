@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { TableHeader } from "./tableHeader";
-import { TableRow } from "./tableRow";
-import { Search } from "./Search";
+import { TableHeader, TableRow, Search, LoadingError, LoadingMessage } from "../components";
 
 export const Table = () => {
   const sortTypes = {
@@ -72,22 +70,24 @@ export const Table = () => {
   }
 
   if (error) {
-    return <tbody><tr><td style={{color: "red"}}>Error:{error.message}</td></tr></tbody>;
+    return (
+      <LoadingError error={error.message}/>
+    );
   } else if (!isLoaded) {
-    return <tbody><tr><td style={{color: "blue"}}>Loading...</td></tr></tbody>;
+    return (
+      <LoadingMessage/>
+    );
   } else {
     return (
       <>
         <Search value={search} handleChange={handleSearch}/>
         <div className="table-responsive">
           <table className="table table-striped">
-            <thead className="thead-dark">
-              <TableHeader toggleSort={toggleSort}/>
-            </thead>
+            <TableHeader toggleSort={toggleSort}/>
             <tbody>
-            {sortedEmployees.length > 0 && sortedEmployees.map((e, i) => (
-              <TableRow i={i} img={e.picture.thumbnail} firstName={e.name.first} lastName={e.name.last} email={e.email} phone={e.phone}/>
-            ))} 
+              {sortedEmployees.length > 0 && sortedEmployees.map((e, i) => (
+              <TableRow key={e.phone} i={i} img={e.picture.thumbnail} firstName={e.name.first} lastName={e.name.last} email={e.email} phone={e.phone}/>
+              ))} 
               <tr>
                 <td colSpan="5">Total Employees: {employeesData.length}</td>
               </tr>

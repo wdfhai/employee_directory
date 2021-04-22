@@ -1,13 +1,12 @@
 import "./App.css";
-import { PageHeader } from "./components/pageHeader";
-import { Table } from "./components/table";
+import { PageHeader, Table } from "./components";
 
 function App() {
   return (
-      <section className="container-fluid">
+      <div className="container-fluid">
         <PageHeader/>
         <Table/>
-      </section>
+      </div>
   );
 }
 
