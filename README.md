@@ -70,4 +70,4 @@ You can reach me for any questions or comments at the following:
 
 ### Summary
 
-Thank you for checking out my employee directory application. Special thanks for the creators of the RandomUser API for letting me use their API to populate the employees, check them out at <a src="https://randomuser.me/" target="_blank">RandomUser API</a>. Cheers!
+Thank you for checking out my employee directory application. Special thanks for the creators of the RandomUser API for letting me use their API to populate the employees, check them out at <span><a src="https://randomuser.me/" target="_blank">RandomUser API</a></span>. Cheers!
