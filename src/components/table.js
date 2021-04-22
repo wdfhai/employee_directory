@@ -21,15 +21,14 @@ export const Table = () => {
   const [search, setSearch] = useState("");
   const [currentSort, setCurrentSort] = useState()
   const [employeesData, setEmployeesData] = useState([]);
+  const [sortedEmployees, setSortedEmployees] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect (() => {
-    console.log(search)
     fetch("https://randomuser.me/api/?nat=us&results=100")
     .then(res => res.json())
     .then((result) => {
-      console.log(result.results);
       setIsLoaded(true);
       setEmployeesData(result.results);
     },
@@ -38,10 +37,31 @@ export const Table = () => {
       setError(error);
       }
     )
-    console.log(employeesData);
   },[])
 
-  const toggleSort = () => {}
+  useEffect(() => {
+      setCurrentSort(sortTypes.default)
+      setSortedEmployees(employeesData)
+  },[employeesData])
+
+  console.log(employeesData);
+  console.log(currentSort)
+
+  const toggleSort = () => {
+    if (currentSort.class === "random"){
+      setCurrentSort(sortTypes.up)
+      setSortedEmployees(employeesData.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1))
+    } else if (currentSort.class === "up"){
+      setCurrentSort(sortTypes.down)
+      setSortedEmployees(employeesData.sort((a, b) => (a.name.first < b.name.first) ? 1 : -1))
+    } else if (currentSort.class === "down"){
+      setCurrentSort(sortTypes.up)
+      setSortedEmployees(employeesData.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1))
+    }
+  }
+
+  console.log(sortedEmployees)
+
 
   if (error) {
     return <tbody><tr><td style={{color: "red"}}>Error:{error.message}</td></tr></tbody>;
@@ -54,7 +74,7 @@ export const Table = () => {
           <TableHeader toggleSort={toggleSort}/>
         </thead>
         <tbody>
-        {employeesData.length > 0 && employeesData.map((e, i) => (
+        {sortedEmployees.length > 0 && sortedEmployees.map((e, i) => (
           <TableRow i={i} img={e.picture.thumbnail} firstName={e.name.first} lastName={e.name.last} email={e.email} phone={e.phone}/>
         ))} 
           <tr>
