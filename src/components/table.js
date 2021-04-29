@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { TableHeader, TableRow, Search, LoadingError, LoadingMessage } from "../components";
+// import { TableHeader, TableRow, Search, LoadingError, LoadingMessage } from "../components";
+import { TableHeader } from "../components/tableHeader";
+import { TableRow } from "../components/tableRow";
+import { Search } from "../components/search";
+import { LoadingError } from "../components/loadingError";
+import { LoadingMessage } from "../components/loadingMessage";
 
 export const Table = () => {
   const sortTypes = {
