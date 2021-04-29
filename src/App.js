@@ -1,7 +1,5 @@
 import "./App.css";
-// import { PageHeader, Table } from "./components";
-import { PageHeader } from "./components/pageHeader";
-import { Table } from "./components/table";
+import { PageHeader, Table } from "./components";
 
 function App() {
   return (
