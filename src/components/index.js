@@ -1,4 +1,4 @@
-export * from "./search"
+export { Search } from "./search"
 export * from "./loadingError"
 export * from "./loadingMessage"
 export * from "./pageHeader"
